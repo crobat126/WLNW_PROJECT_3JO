@@ -11,5 +11,15 @@
 
 ## S/W 구성도
   <img width="" height="" src="./img/sw.PNG"></img>
+  
+## Arduino
+  - 기능
+    1. 토양 수분 감지 센서를 통해 토양의 수분을 감지합니다.
+    2. 토양 수분의 수치가 일정 값보다 높을 경우 수분이 부족한걸로 판단하여 워터 펌프를 작동합니다.
+    3. 워터 펌프를 통해 물을 빨아들인 후, 호스를 따라서 물을 화분에 배출합니다.
 
-[arduino_code](./Arduino_Code/Finish/sketch_dec12a/sketch_dec12a.ino)
+  - 코드 : [arduino_code](./Arduino_Code/Finish/sketch_dec12a/sketch_dec12a.ino)
+  
+  - 회로도
+    <img width="" height="" src="./img/practice_img/practice (9).jpg"></img>
+    <img width="" height="" src="./img/practice_img/practice (10).jpg"></img>
