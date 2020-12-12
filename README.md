@@ -8,3 +8,6 @@
 
 ## 준비물
   <img width="" height="" src="./img/prepare.PNG"></img>
+
+## S/W 구성도
+  <img width="" height="" src="./img/sw.PNG"></img>
