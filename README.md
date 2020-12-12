@@ -7,4 +7,4 @@
   - 목표 : 아두이노를 이용하여 물을 자동으로 주는 스마트 화분을 구현하고, 라즈베리파이를 연동하여 텔레그램을 통해 확인 메시지와 사진을 전송하는것을 목표로 한다.
 
 ## 준비물
-  <img width="" height="" src="./img/prepare.png"></img>
+  <img width="" height="" src="/img/prepare.png"></img>
