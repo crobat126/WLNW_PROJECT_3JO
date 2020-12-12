@@ -22,6 +22,6 @@
   
   - 회로도
   
-    <img width="600" height="400" src="./img/practice_img/practice (9).jpg"></img>
     <img width="600" height="400" src="./img/practice_img/practice (10).jpg"></img>
+    <img width="600" height="400" src="./img/practice_img/practice (20).jpg"></img>
 
