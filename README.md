@@ -21,6 +21,6 @@
   - 코드 : [arduino_code](./Arduino_Code/Finish/sketch_dec12a/sketch_dec12a.ino)
   
   - 회로도
-  
-    <img width="600" height="400" src="./img/practice_img/practice (9).jpg"></img>
-    <img width="600" height="400" src="./img/practice_img/practice (10).jpg"></img>
+  <img width="600" height="400" src="./img/practice_img/practice (9).jpg"></img>
+  <img width="600" height="400" src="./img/practice_img/practice (10).jpg"></img>
+
