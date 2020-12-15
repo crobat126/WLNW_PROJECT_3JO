@@ -24,7 +24,7 @@ void loop()
   {    
     //Serial.println(" Very Wet ! ");  
     Serial.println(sensorVal); // 토양의 습도 값(수치) 콘솔에 출력    
-    stop();   
+    stop(); // 워터 펌프 작동 중지
   }
   // 토양이 건조할 경우 (기준 600)
   else if ( sensorVal > 600)
@@ -51,6 +51,7 @@ void pump(int flag)
   digitalWrite(A_2A, inPin2); // digital방식으로 output을 해준다.
 }
 
+// 워터 펌프 작동 중지 함수
 void stop() {
   digitalWrite(A_1A, LOW); // digital방식으로 output을 해준다.
   digitalWrite(A_2A, LOW); // digital방식으로 output을 해준다.
