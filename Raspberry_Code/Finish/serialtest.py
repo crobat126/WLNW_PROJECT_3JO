@@ -1,16 +1,16 @@
-import serial
-import logging
+import serial # serial 모듈 선언
+import logging #로깅 모듈 선언
 
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
+from telegram.ext import Updater, CommandHandler, CallbackContext #텔레그램 사용할 때 필요한 모듈들 선언
 
-port="/dev/ttyACM0"
-serialFromArduino =serial.Serial(port,9600)
-serialFromArduino.flushInput()
+port="/dev/ttyACM0" #아두이노 포트 
+serialFromArduino =serial.Serial(port,9600) #아두이노 포트 9600번 사용
+serialFromArduino.flushInput() #도착한 모든 바이트 읽기
 
-token = "1448411155:AAHxLlxCtNOIBnyeIRu3zyRPuQvVl3Fg6nU"
-input_s = ""
-cmd = "sensorVal"
+token = "1448411155:AAHxLlxCtNOIBnyeIRu3zyRPuQvVl3Fg6nU" #텔레그램 토큰 
+input_s = "" 
+cmd = "sensorVal" #아두이노의 토양 수분 센서 값을 cmd라고 명칭함.
 
 #while True:
 #    input_s =  serialFromArduino.readline()
@@ -30,14 +30,14 @@ logger = logging.getLogger(__name__)
 def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Hi! Use /set <seconds> to set a timer')
 
-def test(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text('Checking...')
+def test(update: Update, context: CallbackContext) -> None: #test라는 함수 선언
+    update.message.reply_text('Checking...')        #시작하자마자 checking이라는 text를 호출
     seri = serial.Serial(port, baudrate = 9600, timeout = None)
     print(seri.name)
 
     seri.write(cmd.encode())
     a=1
-    while a:
+    while a:        #텔레그램으로 사용자에게 메세지 보내는 코드
         if seri.in_waiting != 0:
             content = seri.readline()
             text = content[:-2].decode()
@@ -107,7 +107,7 @@ def main():
     dispatcher.add_handler(CommandHandler("start", start))
     dispatcher.add_handler(CommandHandler("help", start))
     dispatcher.add_handler(CommandHandler("set", set_timer))
-    dispatcher.add_handler(CommandHandler("check", test))
+    dispatcher.add_handler(CommandHandler("check", test))       #check라는 단어를 쓰면 위에 함수가 실행되게 선언.
     dispatcher.add_handler(CommandHandler("unset", unset))
 
     # Start the Bot
