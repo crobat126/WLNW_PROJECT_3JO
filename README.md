@@ -12,6 +12,7 @@
 ## S/W 구성도
   <img width="" height="" src="./img/sw.PNG"></img>
 
+-------------
 ## Arduino
   - 기능
     1. 토양 수분 감지 센서를 통해 토양의 수분을 감지합니다.
@@ -29,6 +30,7 @@
 
     - [토양 수분 감지 센서를 이용하여 자동으로 물 주기](https://www.youtube.com/watch?v=x1OLyBYllVw)
 
+-------------
 ## Raspberrypi
   - 기능
     1. 아두이노와 연동하여 토양 수분 감지 센서가 얻은 수치 값을 라즈베리파이로 불러옵니다.
