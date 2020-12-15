@@ -11,7 +11,7 @@
 
 ## S/W 구성도
   <img width="" height="" src="./img/sw.PNG"></img>
-  
+
 ## Arduino
   - 기능
     1. 토양 수분 감지 센서를 통해 토양의 수분을 감지합니다.
@@ -19,11 +19,15 @@
     3. 워터 펌프를 통해 물을 빨아들인 후, 호스를 따라서 물을 화분에 배출합니다.
 
   - 코드 : [arduino_code](./Arduino_Code/Finish/sketch_dec12a/sketch_dec12a.ino)
-  
+
   - 회로도
-  
+
     <img width="600" height="400" src="./img/practice_img/practice (10).jpg"></img>
     <img width="600" height="400" src="./img/practice_img/practice (20).jpg"></img>
+
+  - 유튜브 영상
+
+    - [토양 수분 감지 센서를 이용하여 자동으로 물 주기](https://www.youtube.com/watch?v=x1OLyBYllVw)
 
 ## Raspberrypi
   - 기능
@@ -32,5 +36,8 @@
     3. 라즈베리파이 카메라를 통해 식물에게 물을 주는 모습도 촬영하여 텔레그램으로 전송합니다.
 
   - 코드 : [raspberrypi_code]()
-  
-{% include videolink.html id="x1OLyBYllVw" %}  
+
+  - 유튜브 영상
+
+    - [아두이노와 라즈베리파이를 연동하여 토양의 수분 수치 측정](https://www.youtube.com/watch?v=CxpEPfRKjlw)
+    - [라즈베리파이와 텔레그램을 연동하여 메시지 전송](https://www.youtube.com/watch?v=iAftGzbpjgY)
