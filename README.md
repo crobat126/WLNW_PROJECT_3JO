@@ -33,4 +33,4 @@
 
   - 코드 : [raspberrypi_code]()
   
-<iframe width="560" height="420" src="https://www.youtube.com/watch?v=x1OLyBYllVw"></iframe>
+{% include videolink.html id="x1OLyBYllVw" %}  
