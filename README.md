@@ -1,6 +1,7 @@
 # 무선네트워크 3조 기말 프로젝트
   - 팀명 : 상부삼조
   - 조원 : 양대철(201544090), 임지섭(201644063), 임선주(201644060), 김승연(201644043), 김도은(201844042)
+  <img width="480" height="360" src="./img/team/단체샷 (1).jpg"></img>
  
 ## 프로젝트 개요
   - 주제 : 스마트 화분
@@ -17,7 +18,7 @@
   - 기능
     1. 토양 수분 감지 센서를 통해 토양의 수분을 감지합니다.
     2. 토양 수분의 수치가 일정 값보다 높을 경우 수분이 부족한걸로 판단하여 워터 펌프를 작동합니다.
-    3. 워터 펌프를 통해 물을 빨아들인 후, 호스를 따라서 물을 화분에 배출합니다.
+    3. 워터 펌프를 통해 물을 빨아들인 후, 호스를 따라서 물을 화분에 배출합니다. (5초 간격)
 
   - 코드 : [arduino_code](./Arduino_Code/Finish/sketch_dec12a/sketch_dec12a.ino)
 
@@ -51,3 +52,13 @@
 
     - [아두이노와 라즈베리파이를 연동하여 토양의 수분 수치 측정](https://www.youtube.com/watch?v=CxpEPfRKjlw)
     - [라즈베리파이와 텔레그램을 연동하여 메시지 전송](https://www.youtube.com/watch?v=iAftGzbpjgY)
+
+-------------
+## 실습 사진
+
+  <img width="600" height="400" src="./img/practice_img/practice (4).jpg"></img>
+  <img width="600" height="400" src="./img/practice_img/practice (6).jpg"></img>
+  <img width="600" height="400" src="./img/practice_img/practice (7).jpg"></img>
+  <img width="600" height="400" src="./img/practice_img/practice (17).jpg"></img>
+  <img width="600" height="400" src="./img/practice_img/practice (18).jpg"></img>
+  <img width="600" height="400" src="./img/practice_img/practice (21).jpg"></img>
