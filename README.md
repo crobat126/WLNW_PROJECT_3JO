@@ -33,7 +33,7 @@
   - 기능
     1. 아두이노와 연동하여 토양 수분 감지 센서가 얻은 수치 값을 라즈베리파이로 불러옵니다.
     2. 얻어온 수치 값이 일정 값보다 높을 경우 워터 펌프가 작동되므로, 이 경우에 텔레그램으로 "물을 줍니다." 라고 메시지를 전송합니다.
-    ~3. 라즈베리파이 카메라를 통해 식물에게 물을 주는 모습도 촬영하여 텔레그램으로 전송합니다.~
+    3. ~라즈베리파이 카메라를 통해 식물에게 물을 주는 모습도 촬영하여 텔레그램으로 전송합니다.~
 
   - 코드 : [raspberrypi_code](./Raspberry_Code/Finish/serialtest.py)
   
@@ -43,7 +43,7 @@
     
   - 라즈베리파이&텔레그램 연동
     
-    <img width="600" height="400" src="./Raspberry_Code/images/raspberry_tele (2).jpg"></img>
+    <img width="" height="" src="./Raspberry_Code/images/raspberry_tele (2).jpg"></img>
 
   - 유튜브 영상
 
