@@ -1,21 +1,17 @@
-import serial # serial 모듈 선언
-import logging #로깅 모듈 선언
+import serial  # serial 모듈 선언
+import logging  # 로깅 모듈 선언
 
+# 텔레그램 사용할 때 필요한 모듈들 선언
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext #텔레그램 사용할 때 필요한 모듈들 선언
+from telegram.ext import Updater, CommandHandler, CallbackContext
 
-port="/dev/ttyACM0" #아두이노 포트 
-serialFromArduino =serial.Serial(port,9600) #아두이노 포트 9600번 사용
-serialFromArduino.flushInput() #도착한 모든 바이트 읽기
+port = "/dev/ttyACM0"  # 아두이노 포트
+serialFromArduino = serial.Serial(port, 9600)  # 아두이노 포트 9600번 사용
+serialFromArduino.flushInput()  # 도착한 모든 바이트 읽기
 
-token = "1448411155:AAHxLlxCtNOIBnyeIRu3zyRPuQvVl3Fg6nU" #텔레그램 토큰 
-input_s = "" 
-cmd = "sensorVal" #아두이노의 토양 수분 센서 값을 cmd라고 명칭함.
-
-#while True:
-#    input_s =  serialFromArduino.readline()
-#    temp = int(input_s)
-#    print(temp)
+token = "1448411155:AAHxLlxCtNOIBnyeIRu3zyRPuQvVl3Fg6nU"  # 텔레그램 토큰
+input_s = ""
+cmd = "sensorVal"  # 아두이노의 토양 수분 센서 값을 cmd라고 명칭함.
 
 # Enable logging
 logging.basicConfig(
@@ -30,25 +26,32 @@ logger = logging.getLogger(__name__)
 def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Hi! Use /set <seconds> to set a timer')
 
-def test(update: Update, context: CallbackContext) -> None: #test라는 함수 선언
-    update.message.reply_text('Checking...')        #시작하자마자 checking이라는 text를 호출
-    seri = serial.Serial(port, baudrate = 9600, timeout = None)
+def test(update: Update, context: CallbackContext) -> None:  # test라는 함수 선언
+    update.message.reply_text('Checking...')  # 시작하자마자 checking이라는 text를 호출
+    seri = serial.Serial(port, baudrate=9600, timeout=None)
     print(seri.name)
 
     seri.write(cmd.encode())
-    a=1
-    while a:        #텔레그램으로 사용자에게 메세지 보내는 코드
+    flag = 1 # flag 1로 설정 (반복문 용)
+
+    # 텔레그램으로 사용자에게 메세지 보내는 코드
+    while flag:
         if seri.in_waiting != 0:
             content = seri.readline()
             text = content[:-2].decode()
-            update.message.reply_text(text)
+            update.message.reply_text(text) # 토양 수분 센서로 얻은 수치 값 텔레그램으로 전송
             i_text = int(text)
-            if i_text > 800:
-                text = "more water"
+
+            # 토양이 건조할 경우 (기준 600)
+            if i_text > 600:
+                text = "I'm Watering it now !" # 물이 필요하므로 물을 준다
+            # 토양이 습할 경우 (기준 600)
             else:
-                text = "enough water"
-            update.message.reply_text(text)
-            a=0
+                text = "Enough Water" # 물이 충분함
+
+            update.message.reply_text(text) # 상황에 따른 메시지 텔레그램으로 전송
+            flag = 0 # flag 0으로 설정하여 반복문 탈출
+
 
 def alarm(context):
     """Send the alarm message."""
@@ -77,7 +80,8 @@ def set_timer(update: Update, context: CallbackContext) -> None:
             return
 
         job_removed = remove_job_if_exists(str(chat_id), context)
-        context.job_queue.run_once(alarm, due, context=chat_id, name=str(chat_id))
+        context.job_queue.run_once(
+            alarm, due, context=chat_id, name=str(chat_id))
 
         text = 'Timer successfully set!'
         if job_removed:
@@ -98,7 +102,8 @@ def unset(update: Update, context: CallbackContext) -> None:
 
 def main():
     """Run bot."""
-    updater = Updater("1448411155:AAHxLlxCtNOIBnyeIRu3zyRPuQvVl3Fg6nU", use_context=True)
+    updater = Updater(
+        "1448411155:AAHxLlxCtNOIBnyeIRu3zyRPuQvVl3Fg6nU", use_context=True)
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
@@ -107,7 +112,8 @@ def main():
     dispatcher.add_handler(CommandHandler("start", start))
     dispatcher.add_handler(CommandHandler("help", start))
     dispatcher.add_handler(CommandHandler("set", set_timer))
-    dispatcher.add_handler(CommandHandler("check", test))       #check라는 단어를 쓰면 위에 함수가 실행되게 선언.
+    # check라는 단어를 쓰면 위에 함수가 실행되게 선언.
+    dispatcher.add_handler(CommandHandler("check", test))
     dispatcher.add_handler(CommandHandler("unset", unset))
 
     # Start the Bot
@@ -121,4 +127,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
