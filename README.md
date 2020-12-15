@@ -20,8 +20,8 @@
     1. 토양 수분 감지 센서를 통해 토양의 수분을 감지합니다.
     2. 토양 수분의 수치가 일정 값보다 높을 경우 수분이 부족한걸로 판단하여 워터 펌프를 작동합니다.
     3. 반대로 통야 수준 수치가 일정 값보다 낮을 경우에는 수분이 충분하다는 것으로 판단되어 워터 펌프가 작동하지 않습니다.
-    3. 워터 펌프를 통해 물을 빨아들인 후, 호스를 따라서 물을 화분에 배출합니다. (5초 간격)
-
+    4. 워터 펌프를 통해 물을 빨아들인 후, 호스를 따라서 물을 화분에 5초 간격으로 배출합니다.
+    
   - 코드 : [arduino_code](./Arduino_Code/Finish/sketch_dec12a/sketch_dec12a.ino)
 
   - 회로도
@@ -65,3 +65,6 @@
   <img width="600" height="400" src="./img/practice_img/practice (17).jpg"></img>
   <img width="600" height="400" src="./img/practice_img/practice (18).jpg"></img>
   <img width="600" height="400" src="./img/practice_img/practice (21).jpg"></img>
+  
+-------------
+### 지금까지 상부삼조(3조)의 기말 팀 프로젝트 "스마트 화분"이었습니다. 감사합니다.
