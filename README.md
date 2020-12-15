@@ -43,7 +43,7 @@
     
   - 라즈베리파이&텔레그램 연동
     
-    <img width="" height="" src="./Raspberry_Code/images/raspberry_tele (2).jpg"></img>
+    <img width="750" height="1000" src="./Raspberry_Code/images/raspberry_tele (2).jpg"></img>
 
   - 유튜브 영상
 
