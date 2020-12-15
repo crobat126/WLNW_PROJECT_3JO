@@ -1,15 +1,15 @@
 /* Auto Water Pot - 자동 물공급 화분 */
-#define A0Pin 0
-int sensorVal = 0;
-int A_1A = 11;
-int A_2A = 12;
+#define A0Pin 0 // 토양 습도 센서 
+int sensorVal = 0; /* 토양 센서 값 */ 
+int A_1A = 11; /* 워터 펌프 센서 */
+int A_2A = 12; /* 워터 펌프 센서 */
 
 void setup()
 {
-  Serial.begin(9600);   
-  pinMode(4, INPUT);
-  pinMode(A_1A, OUTPUT);
-  pinMode(A_2A, OUTPUT);
+  Serial.begin(9600);   //시리얼 포트 9600 
+  pinMode(4, INPUT); //4번핀을 INPUT으로 설정
+  pinMode(A_1A, OUTPUT); //모터드라이브 A_1A의 pinMode 선언
+  pinMode(A_2A, OUTPUT); //모터드라이브 A_2A의 pinmode 선언
 }
 
 void loop()
@@ -40,18 +40,18 @@ void loop()
 // 워터 펌프 작동 함수
 void pump(int flag)
 {
-  boolean inPin1 = HIGH;
-  boolean inPin2 = LOW;
+  boolean inPin1 = HIGH;  //boolean inPin1 = 1
+  boolean inPin2 = LOW;   //boolean inPin2 = 0
   
   if(flag == 1) {
-    inPin1 = HIGH;
-    inPin2 = LOW;
+    inPin1 = HIGH; //서로 값이 달라야 정방향, 역방향 회전
+    inPin2 = LOW; //모터가 약할시에 역방향 회전으로 pin1, pin2의 값을 바꿔준다.
   }
-  digitalWrite(A_1A, inPin1);
-  digitalWrite(A_2A, inPin2);
+  digitalWrite(A_1A, inPin1); // digital방식으로 output을 해준다.
+  digitalWrite(A_2A, inPin2); // digital방식으로 output을 해준다.
 }
 
 void stop() {
-  digitalWrite(A_1A, LOW);
-  digitalWrite(A_2A, LOW);
+  digitalWrite(A_1A, LOW); // digital방식으로 output을 해준다.
+  digitalWrite(A_2A, LOW); // digital방식으로 output을 해준다.
 }
