@@ -28,7 +28,7 @@ def start(update: Update, context: CallbackContext) -> None:
 
 def test(update: Update, context: CallbackContext) -> None:  # test라는 함수 선언
     update.message.reply_text('Checking...')  # 시작하자마자 checking이라는 text를 호출
-    seri = serial.Serial(port, baudrate=9600, timeout=None)
+    seri = serial.Serial(port, baudrate=9600, timeout=None)  #seri라는 변수에 port를 선언
     print(seri.name)
 
     seri.write(cmd.encode())
