@@ -29,18 +29,18 @@ def start(update: Update, context: CallbackContext) -> None:
 def test(update: Update, context: CallbackContext) -> None:  # test라는 함수 선언
     update.message.reply_text('Checking...')  # 시작하자마자 checking이라는 text를 호출
     seri = serial.Serial(port, baudrate=9600, timeout=None)  #seri라는 변수에 port를 선언
-    print(seri.name)
+    print(seri.name)  #seri 를 print 해줌
 
-    seri.write(cmd.encode())
+    seri.write(cmd.encode())  # 실행시킬때 encode 방식으로 실행
     flag = 1 # flag 1로 설정 (반복문 용)
 
     # 텔레그램으로 사용자에게 메세지 보내는 코드
     while flag:
-        if seri.in_waiting != 0:
-            content = seri.readline()
-            text = content[:-2].decode()
+        if seri.in_waiting != 0:   # 만약 waiting 상태가 아니면 serial을 read
+            content = seri.readline()  # content에 seri.reaine을 넣어준다.
+            text = content[:-2].decode() # 앞에 문자2개 제거 후 출력
             update.message.reply_text(text) # 토양 수분 센서로 얻은 수치 값 텔레그램으로 전송
-            i_text = int(text)
+            i_text = int(text) #i_text 를 int(text)
 
             # 토양이 건조할 경우 (기준 600)
             if i_text > 600:
